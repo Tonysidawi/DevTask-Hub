@@ -16,9 +16,9 @@ class Project extends Model
     /**
      * Relationships
      */
-    public function organization(): BelongsTo
+    public function organisation(): BelongsTo
     {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organisation::class, 'organization_id');
     }
 
     public function tasks(): HasMany

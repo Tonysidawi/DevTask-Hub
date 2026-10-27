@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Organization;
+use App\Models\Organisation;
 use App\Models\Project;
 use App\Models\Tag;
 use App\Models\Task;
@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         $tags = Tag::factory(4)->create();
 
-        Organization::factory(3)->create()->each(function ($organization) use ($tags) {
+        Organisation::factory(3)->create()->each(function ($organization) use ($tags) {
 
             Project::factory(2)->create([
                 'organization_id' => $organization->id,

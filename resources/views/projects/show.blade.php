@@ -16,7 +16,7 @@
             <div class="flex justify-between items-start">
                 <div>
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                        {{ $project->organization->name }}
+                        {{ $project->organisation->name }}
                     </span>
                     <h1 class="text-3xl font-bold text-gray-900 mt-2">{{ $project->name }}</h1>
                     <a href="/projects/{{ $project->id }}/edit" class="text-sm text-blue-600 hover:underline">Edit project</a>
@@ -30,7 +30,12 @@
 
             <hr class="my-6">
 
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Project Tasks ({{ $project->tasks->count() }})</h2>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold text-gray-800">Project Tasks ({{ $project->tasks->count() }})</h2>
+                <a href="/projects/{{ $project->id }}/tasks/create" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 font-semibold text-sm">
+                    + Add Task
+                </a>
+            </div>
 
             <div class="space-y-3">
                 @forelse ($project->tasks as $task)

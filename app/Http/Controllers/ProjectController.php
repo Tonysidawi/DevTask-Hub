@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
-use App\Models\Organization;
+use App\Models\Organisation;
 use App\Models\Project;
 use App\Services\ProjectService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -16,14 +16,14 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::where('organization_id', Auth::user()->organization->id)->with(['tasks.tags'])->get();
+        $projects = Project::where('organization_id', Auth::user()->organisation->id)->with(['tasks.tags'])->get();
 
         return view('projects.index', compact('projects'));
     }
 
     public function create()
     {
-        $organizations = Organization::all();
+        $organizations = Organisation::all();
 
         return view('projects.create', compact('organizations'));
     }
@@ -39,7 +39,7 @@ class ProjectController extends Controller
     {
         Gate::authorize('view', $project);
 
-        $project->load(['organization', 'tasks.tags', 'tasks.user']);
+        $project->load(['organisation', 'tasks.tags', 'tasks.user']);
 
         return view('projects.show', compact('project'));
     }
@@ -48,7 +48,7 @@ class ProjectController extends Controller
     {
         Gate::authorize('update', $project);
 
-        $organizations = Organization::all();
+        $organizations = Organisation::all();
 
         return view('projects.edit', compact('project', 'organizations'));
     }

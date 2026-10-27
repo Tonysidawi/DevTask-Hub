@@ -2,6 +2,9 @@
     <div class="container mx-auto px-8 py-4 flex justify-between items-center">
         <a href="/projects" class="text-xl font-bold text-gray-800">DevTask Hub</a>
         <nav class="flex items-center gap-4">
+            <a href="/organisations" class="text-sm font-semibold {{ request()->is('organisations') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
+                Organisation
+            </a>
             <a href="/projects" class="text-sm font-semibold {{ request()->is('projects') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
                 Projects
             </a>

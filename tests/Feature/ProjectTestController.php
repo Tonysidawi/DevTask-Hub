@@ -2,19 +2,19 @@
 
 namespace Tests\Feature;
 
-use App\Models\Organization;
+use App\Models\Organisation;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ProjectEditTest extends TestCase
+class ProjectTestController extends TestCase
 {
     use RefreshDatabase;
 
     public function test_edit_page_shows_the_current_project_and_saves_changes(): void
     {
-        $organization = Organization::factory()->create();
+        $organization = Organisation::factory()->create();
         $user = User::factory()->create([
             'organization_id' => $organization->id,
         ]);

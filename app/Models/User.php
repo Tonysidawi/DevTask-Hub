@@ -58,8 +58,8 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
-    public function organization(): BelongsTo
+    public function organisation(): BelongsTo
     {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organisation::class, 'organization_id');
     }
 }

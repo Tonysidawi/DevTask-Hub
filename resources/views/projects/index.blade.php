@@ -10,7 +10,7 @@
             @foreach ($projects as $project)
                 <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-500">
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">
-                        {{ $project->organization->name }}
+                        {{ $project->organisation->name }}
                     </span>
 
                     <h2 class="text-xl font-bold text-gray-900 mt-1">
